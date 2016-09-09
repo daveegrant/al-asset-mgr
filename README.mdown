@@ -81,6 +81,18 @@ Or on Windows:
 
     TODO:  Create Windows import script.
 
+
+## Data Reset
+
+In order to load new/additional data into the app, it is recommended that the
+database be cleared then import the new data.  The new data should be added to the
+appropriate `/content/elements/` or `/content/products/` folder.  Then the following
+commands can be run.
+
+    ./ml local clean content
+    ./import-data.sh
+
+
 ## General Data Information
 
 
