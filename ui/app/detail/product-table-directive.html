@@ -1,0 +1,21 @@
+<div class="product-table">
+  <h4>Products using Asset [{{data.source}} : {{data.sourceTrackingNumber}}] (<b>Count: {{data.matchingProducts.length}}</b>)</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product Id</th>
+        <th>Bookcode</th>
+        <th>ISBN</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in data.matchingProducts">
+        <td><a ng-href="detail{{x.uri}}">{{ x.productId }}</a></td>
+        <td>{{ x.bookCode }}</td>
+        <td>{{ x.isbn }}</td>
+        <td>{{ x.title }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

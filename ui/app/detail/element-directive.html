@@ -1,0 +1,160 @@
+<div class="element-details">
+  <div style="margin-left: 20px;">
+    <form>
+      <section>
+        <div class="element-item">
+          <label for="author">Author</label>
+          <input id="author" type="text" style="width:200px;" ng-model="data.envelope.source.element.Author_Last_Name" name="author">
+        </div>
+        <div class="element-item">
+          <label for="bookCode">Book Code</label>
+          <input id="bookCode" type="text" style="width:100px;" ng-model="data.envelope.commonBookCode" name="bookCode">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="prefix">Prefix</label>
+          <input id="prefix" type="text" style="width:50px;" ng-model="data.envelope.source.element.Chapter_Prefix" name="prefix">
+        </div>
+        <div class="element-item">
+          <label for="batch">Batch</label>
+          <input id="batch" type="text" style="width:50px;" ng-model="data.envelope.source.element.Batch_Number" name="batch">
+        </div>
+        <div class="element-item">
+          <label for="chapter">Chapter</label>
+          <input id="chapter" type="text" style="width:30px;" ng-model="data.envelope.source.element.Chapter" name="chapter">
+        </div>
+        <div class="element-item">
+          <label for="element">Element</label>
+          <input id="element" type="text" ng-model="data.envelope.source.element.Element" name="element">
+        </div>
+        <div class="element-item">
+          <label for="msPageNum">MS P#</label>
+          <input id="msPageNum" type="text" style="width:30px;" ng-model="data.envelope.source.element.MS_page" name="msPageNum">
+        </div>
+        <div class="element-item">
+          <label for="specAs">Spec'd As</label>
+          <input id="specAs" type="text" ng-model="data.envelope.source.element.Spec_d_as" name="specAs">
+        </div>
+        <div class="element-item">
+          <label for="elType">El Type</label>
+          <input id="elType" type="text" ng-model="data.envelope.source.element.Element_Type" name="elType">
+        </div>
+        <div class="element-item">
+          <label for="usage">Usage</label>
+          <input id="usage" type="text" ng-model="data.envelope.source.element.Usage" name="usage">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="imageName">Image Name Calc</label>
+          <input id="imageName" type="text" style="width:400px;" ng-model="data.envelope.source.element.Image_Name_calc_long" name="imageName">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="pickupSource">Pickup Source</label>
+          <input id="pickupSource" type="text" style="width:200px;" ng-model="data.envelope.source.element.Pickup_Source" name="pickupSource">
+        </div>
+        <div class="element-item">
+          <label for="oldElementNum">Old Element Number</label>
+          <input id="oldElementNum" type="text" style="width:150px;" ng-model="data.envelope.source.element.Old_Element_Number" name="oldElementNum">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="source">Source</label>
+          <input id="source" type="text" style="width:200px;" ng-model="data.envelope.source.element.Source" name="source">
+          <a href="source?id={{data.envelope.source.element.Source | escape}}">Show Source Summary</a>
+        </div>
+        <div class="element-item">
+          <label for="sourceTrackingNum">Source Tracking Num</label>
+          <input id="sourceTrackingNum" type="text" style="width:150px;" ng-model="data.envelope.source.element.Source_Tracking_Number" name="sourceTrackingNum">
+          <a ng-href="asset?source={{data.envelope.source.element.Source | escape}}&id={{data.envelope.source.element.Source_Tracking_Number | escape}}">Show Source Num Summary</a>
+        </div>
+        <div class="element-item">
+          <label for="cost">Cost</label>
+          <input id="cost" type="text" style="width:150px;" ng-model="data.envelope.source.element.Cost_calc" name="cost">
+        </div>
+        <br style="clear:both;" />
+        <hr/>
+      </section>
+      <section>
+        <h4>Element Cost/Fees</h4>
+        <div class="element-item">
+          <label for="plateCost">Plate</label>
+          <input id="plateCost" type="text" ng-model="data.envelope.source.element.Cost_01_Plate" name="plateCost">
+        </div>
+        <div class="element-item">
+          <label for="authorCost">Author</label>
+          <input id="authorCost" type="text" ng-model="data.envelope.source.element.Cost_02_Author" name="authorCost">
+        </div>
+        <div class="element-item">
+          <label for="rfSubCost">RF Sub</label>
+          <input id="rfSubCost" type="text" ng-model="data.envelope.source.element.Cost_03_RF_Sub" name="rfSubCost">
+        </div>
+        <div class="element-item">
+          <label for="shootCost">Shoot</label>
+          <input id="shootCost" type="text" ng-model="data.envelope.source.element.Cost_04_PhotoShoot" name="shootCost">
+        </div>
+        <div class="element-item">
+          <label for="coverCost">Cover</label>
+          <input id="coverCost" type="text" ng-model="data.envelope.source.element.Cost_05_Cover" name="coverCost">
+        </div>
+        <div class="element-item">
+          <label for="elemTotalCost">Element Total Cost</label>
+          <input id="elemTotalCost" type="text" style="width:150px;" ng-model="data.envelope.source.element.Cost_calc" name="elemTotalCost">
+        </div>
+        <br style="clear:both;" />
+        <hr/>
+      </section>
+      <section>
+        <h4>Total Project Fees</h4>
+        <div class="element-item">
+          <label for="totalPlateCost">Plate</label>
+          <input id="totalPlateCost" type="text" ng-model="data.envelope.source.element.Total_Plate_Summary" name="totalPlateCost">
+        </div>
+        <div class="element-item">
+          <label for="totalAuthorCost">Author</label>
+          <input id="totalAuthorCost" type="text" ng-model="data.envelope.source.element.Total_Author_Summary" name="totalAuthorCost">
+        </div>
+        <div class="element-item">
+          <label for="totalRfSubCost">RF Sub</label>
+          <input id="totalRfSubCost" type="text" ng-model="data.envelope.source.element.Total_RFSub_Summary" name="totalRfSubCost">
+        </div>
+        <!-- <div class="element-item">
+          <label for="totalShootCost">Shoot Cost</label>
+          <input id="totalShootCost" type="text" ng-model="" name="totalShootCost">
+        </div>
+        <div class="element-item">
+          <label for="totalCoverCost">Cover Cost</label>
+          <input id="totalCoverCost" type="text" ng-model="" name="totalCoverCost">
+        </div> -->
+        <div class="element-item">
+          <label for="totalElemTotalCost">Element Total Cost</label>
+          <input id="totalElemTotalCost" type="text" style="width:150px;" ng-model="data.envelope.source.element.Total_Cost_Summary" name="totalElemTotalCost">
+        </div>
+        <br style="clear:both;" />
+        <hr/>
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="description">Description</label>
+          <textarea id="description" rows="4" cols="70" ng-model="data.envelope.source.element.Description" name="description"></textarea>
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="caption">Caption</label>
+          <textarea id="caption" rows="4" cols="70" ng-model="data.envelope.source.element.Caption" name="caption"></textarea>
+        </div>
+        <br style="clear:both;" />
+      </section>
+    </form>
+  </div>
+</div>

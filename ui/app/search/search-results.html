@@ -1,0 +1,56 @@
+<div ng-repeat="result in results">
+  <h4>
+    <a ui-sref="root.view({uri: result.uri})">{{ result.localLabel || result.label || result.uri }}</a>
+  </h4>
+  <div>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.commonBookCode">
+      Bookcode <span class="badge">{{result.extractedJson.envelope.commonBookCode}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Author_Last_Name">
+      Author <span class="badge">{{result.extractedJson.envelope.source.element.Author_Last_Name}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.product.Authors">
+      Authors <span class="badge">{{result.extractedJson.envelope.source.product.Authors}}</span>
+    </button>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Chapter_Prefix">
+      Prefix <span class="badge">{{result.extractedJson.envelope.source.element.Chapter_Prefix}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Chapter">
+      Chapter <span class="badge">{{result.extractedJson.envelope.source.element.Chapter}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Element">
+      Element <span class="badge">{{result.extractedJson.envelope.source.element.Element}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Spec_d_as">
+      Spec'd As <span class="badge">{{result.extractedJson.envelope.source.element.Spec_d_as}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.element.Element_Type">
+      Type <span class="badge">{{result.extractedJson.envelope.source.element.Element_Type}}</span>
+    </button>
+    <button class="btn btn-primary" type="button" ng-show="result.extractedJson.envelope.source.product.ISBN_13_formatted">
+      ISBN <span class="badge">{{result.extractedJson.envelope.source.product.ISBN_13_formatted}}</span>
+    </button>
+  </div>
+  <div ng-show="result.extractedJson.envelope.source.element">
+    <b>Source</b>: <a ng-href="source?id={{result.extractedJson.envelope.source.element.Source | escape}}">{{result.extractedJson.envelope.source.element.Source}}</a>
+    <b>Source Tracking Number</b>: <a ng-href="asset?source={{result.extractedJson.envelope.source.element.Source | escape}}&id={{result.extractedJson.envelope.source.element.Source_Tracking_Number | escape}}">{{result.extractedJson.envelope.source.element.Source_Tracking_Number}}</a>
+  </div>
+  <div ng-if="result.extractedJson.envelope.source.element.Description">
+    <label>Description:</label>
+    <span>{{result.extractedJson.envelope.source.element.Description}}</span>
+  </div>
+  <div ng-if="result.extractedJson.envelope.source.product.PUBLISH_Description">
+    <label>Description:</label>
+    <span>{{ result.extractedJson.envelope.source.product.PUBLISH_Description | limitTo: 300 }}...</span>
+  </div>
+  <div class="matches">
+    <div class="match" ng-repeat="match in result.matches">
+      <em ng-repeat="text in match['match-text'] track by $index">
+        <span ng-class="{ highlight: !!text.highlight }">{{ text.highlight || text }}</span>
+      </em>
+    </div>
+  </div>
+  <hr>
+</div>

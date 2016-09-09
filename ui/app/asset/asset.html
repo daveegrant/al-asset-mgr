@@ -1,0 +1,99 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Asset Summary</div>
+      <div class="panel-body">
+        <div><b>Source: </b> <a href="source?id={{ctrl.source | escape}}">{{ ctrl.source }}</a></div>
+        <div><b>Source Tracking Num: </b>{{ ctrl.id }}</div>
+        <div><b>Total Cost: </b> ${{ ctrl.totalCost | number:2 }}</div>
+        <div><b>References: </b> {{ ctrl.doc.matchingElements.length }}</div>
+        <div ng-show="ctrl.bookCode"><b>Book Code: </b> {{ ctrl.bookCode }}</div>
+        <div ng-show="ctrl.bookCode">
+          <a ng-href="asset?source={{ctrl.source | escape}}&id={{ctrl.id | escape}}{{ctrl.costType ? '&costType=' + (ctrl.costType | escape)  : ''}}">Show All Book Codes</a>
+        </div>
+        <div ng-show="ctrl.costType"><b>Cost Type: </b> {{ ctrl.costType }}</div>
+        <div ng-show="ctrl.costType">
+          <a ng-href="asset?source={{ctrl.source | escape}}&id={{ctrl.id | escape}}{{ctrl.bookCode ? '&bookCode=' + (ctrl.bookCode | escape) : ''}}">Show All Cost Types</a>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost</div>
+      <div class="panel-body">
+        <highchart id="chart1" config="ctrl.pieChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost</div>
+      <div class="panel-body">
+        <highchart id="chart2" config="ctrl.bar2ChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost</div>
+      <div class="panel-body">
+        <highchart id="chart3" config="ctrl.barChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost by Type</div>
+      <div class="panel-body">
+        <highchart id="chart4" config="ctrl.costTypePieChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Element References ( <b>Count: {{ctrl.doc.matchingElements.length}} </b>)</div>
+      <div class="panel-body element-table">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Bookcode</th>
+              <th>Author</th>
+              <th>Image Calc</th>
+              <th>Cost</th>
+              <th>Cost Type</th>
+              <th>Invoice Date</th>
+              <th>Invoice #</th>
+              <th>Processed Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in ctrl.doc.matchingElements">
+              <td>
+                <a ng-href="asset?source={{ctrl.source | escape}}&id={{ctrl.id | escape}}&bookCode={{x.bookCode | escape}}{{ctrl.costType ? '&costType=' + (ctrl.costType | escape) : ''}}">{{ x.bookCode }}</a>
+              </td>
+              <td>{{x.author}}</td>
+              <td><a ng-href="detail{{x.uri}}">{{ x.imageCalc }}</a></td>
+              <td>${{ x.cost | number:2 }}</td>
+              <td>
+                <a ng-href="asset?source={{ctrl.source | escape}}&id={{ctrl.id | escape}}&costType={{x.costType | escape}}{{ctrl.bookCode ? '&bookCode=' + (ctrl.bookCode | escape) : ''}}">{{ x.costType }}</a>
+              </td>
+              <td>{{ x.invoiceDate }}</td>
+              <td>{{ x.invoiceNumber }}</td>
+              <td>{{ x.processedDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="product-details">
+  <div style="margin-left: 20px;">
+    <form>
+      <section>
+        <div class="product-item">
+          <label for="prodId">Product Id</label>
+          <input id="prodId" type="text" style="width:150px;" ng-model="data.envelope.source.product.Product_ID" name="prodId">
+        </div>
+        <div class="product-item">
+          <label for="title">Title</label>
+          <input id="title" type="text" style="width:600px;" ng-model="data.envelope.source.product.Title_big_calc" name="title">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="product-item">
+          <label for="isbn">ISBN</label>
+          <input id="isbn" type="text" style="width:200px;" ng-model="data.envelope.source.product.ISBN_13" name="isbn">
+        </div>
+        <div class="product-item">
+          <label for="bookCode">Book Code</label>
+          <input id="bookCode" type="text" style="width:100px;" ng-model="data.envelope.commonBookCode" name="bookCode">
+        </div>
+        <div class="product-item">
+          <label for="author">Authors</label>
+          <input id="author" type="text" style="width:200px;" ng-model="data.envelope.source.product.Authors" name="author">
+        </div>
+        <div class="product-item">
+          <label for="pgroup">PGROUP</label>
+          <input id="pgroup" type="text" ng-model="data.envelope.source.product.PGROUP" name="pgroup">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="product-item">
+          <label for="status">Status</label>
+          <input id="status" type="text" style="width:200px;" ng-model="data.envelope.source.product.Status" name="status">
+        </div>
+        <div class="product-item">
+          <label for="scrubbed">Scrubbed</label>
+          <input id="scrubbed" type="text" ng-model="data.envelope.source.product.Scrub_Status" name="scrubbed">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="product-item">
+          <label for="plateCost">Plate Cost</label>
+          <input id="plateCost" type="text" ng-model="data.envelope.source.product.PR_ElementCost_Plate" name="plateCost">
+        </div>
+        <div class="product-item">
+          <label for="authorCost">Author Cost</label>
+          <input id="authorCost" type="text" ng-model="data.envelope.source.product.PR_ElementCost_Author" name="authorCost">
+        </div>
+        <div class="product-item">
+          <label for="rfSubCost">RF Sub Cost</label>
+          <input id="rfSubCost" type="text" ng-model="data.envelope.source.product.PR_ElementCost_RF_Sub" name="rfSubCost">
+        </div>
+        <div class="product-item">
+          <label for="shootCost">Shoot Cost</label>
+          <input id="shootCost" type="text" ng-model="data.envelope.source.product.PR_ElementCost_PhotoShoot" name="shootCost">
+        </div>
+        <div class="product-item">
+          <label for="coverCost">Cover Cost</label>
+          <input id="coverCost" type="text" ng-model="data.envelope.source.product.PR_ElementCost_Cover" name="coverCost">
+        </div>
+        <div class="product-item">
+          <label for="elemTotalCost">Element Total Cost</label>
+          <input id="elemTotalCost" type="text" style="width:150px;" ng-model="data.envelope.source.product.PR_ElementCost_Total" name="elemTotalCost">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="product-item">
+          <label for="budgetFinal">Budget - Final</label>
+          <input id="budgetFinal" type="text" style="width:150px;" ng-model="data.envelope.source.product.PR_ElementCost_Total_FINAL_PR_Budget" name="budgetFinal">
+        </div>
+        <div class="product-item">
+          <label for="budgetOrig">Budget - Orig</label>
+          <input id="budgetOrig" type="text" style="width:150px;" ng-model="data.envelope.source.product.RPT__BDGT_OrigBudget_calc" name="budgetOrig">
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="description">Description</label>
+          <textarea id="description" rows="6" cols="80" ng-model="data.envelope.source.product.PUBLISH_Description" name="description"></textarea>
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="6" cols="80" ng-model="data.envelope.source.product.Notes" name="notes"></textarea>
+        </div>
+        <br style="clear:both;" />
+      </section>
+      <section>
+        <div class="element-item">
+          <label for="notesPhoto">Notes - Photo Researcher</label>
+          <textarea id="notesPhoto" rows="6" cols="80" ng-model="data.envelope.source.product.PR_Notes_byPhotoResearcher" name="notesPhoto"></textarea>
+        </div>
+        <br style="clear:both;" />
+      </section>
+    </form>
+  </div>
+</div>

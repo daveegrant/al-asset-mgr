@@ -1,0 +1,91 @@
+<div class="row detail">
+  <div class="col-sm-8">
+    <uib-tabset type="pills">
+      <uib-tab active="true">
+        <uib-tab-heading>Details</uib-tab-heading>
+        <div>
+          <div ng-if="ctrl.productData"><h4>Element Details</h4></div>
+          <div ng-if="ctrl.elementData.sum"><h4>Product Details</h4></div>
+          <div ng-if="ctrl.elementData.sum"><b>Element Calculated Cost:</b> ${{ctrl.elementData.sum}}</div>
+          <div ng-if="ctrl.costType"><b>Filtered by Cost Type:</b> {{ctrl.costType}}</div>
+          <div ng-if="ctrl.costType"><a ng-href="detail{{ctrl.uri}}">Show All Cost Types</a></div>
+          <ml-element uri="ctrl.uri" data="ctrl.json" ng-if="ctrl.json.envelope.source.element"></ml-element>
+          <ml-product uri="{{ctrl.uri}}" data="ctrl.json" ng-if="ctrl.json.envelope.source.product"></ml-product>
+        </div>
+      </uib-tab>
+      <uib-tab>
+        <uib-tab-heading>{{ctrl.type | uppercase}}</uib-tab-heading>
+        <div class="bottom-buffer">
+          <json-explorer ng-if="ctrl.type==='json'" data="ctrl.json"></json-explorer>
+          <pre ng-if="ctrl.type!=='json'" class="pre-xml">{{ctrl.xml}}</pre>
+
+          <a ng-if="ctrl.type==='binary'" target="_blank" ng-href="/v1/documents?uri={{ctrl.uri}}&transform=download" class="btn btn-default">Download</a>
+        </div>
+      </uib-tab>
+      <uib-tab ng-if="ctrl.type!=='json'">
+        <uib-tab-heading>JSON</uib-tab-heading>
+        <div class="bottom-buffer">
+          <json-explorer data="ctrl.json"></json-explorer>
+        </div>
+      </uib-tab>
+      <uib-tab ng-if="ctrl.type==='json'">
+        <uib-tab-heading >XML</uib-tab-heading>
+        <div>
+          <pre class="pre-xml">{{ctrl.xml}}</pre>
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+  <div class="col-sm-4" ng-if="ctrl.elementData.sum">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost Type</div>
+      <div class="panel-body">
+        <highchart id="chart6" config="ctrl.elementCostTypeChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4" ng-if="ctrl.productData">
+    <div class="panel panel-default">
+      <div class="panel-heading">Elements per Product</div>
+      <div class="panel-body">
+        <highchart id="chart2" config="ctrl.productChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" ng-if="ctrl.elementData.sum">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost</div>
+      <div class="panel-body">
+        <highchart id="chart3" config="ctrl.elementChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" ng-if="ctrl.productData">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Elements per Product</div>
+      <div class="panel-body">
+        <highchart id="chart4" config="ctrl.productChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" ng-if="ctrl.elementData.sum">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Cost Bar</div>
+      <div class="panel-body">
+        <highchart id="chart5" config="ctrl.elementCostBarChartConfig"></highchart>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row detail">
+  <div class="col-sm-12">
+    <ml-element-table uri="ctrl.uri" data="ctrl.elementData" ng-if="ctrl.elementData"></ml-element-table>
+    <ml-product-table data="ctrl.productData" ng-if="ctrl.productData"></ml-product-table>
+  </div>
+</div>

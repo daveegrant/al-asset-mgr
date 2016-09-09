@@ -1,0 +1,23 @@
+<div class="element-table">
+  <h4><b>{{data.results.length}}</b> Elements for {{data.bookCode}} (<b>${{data.sum | number:2}}</b>)</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Image Calc</th>
+        <th>Source</th>
+        <th>Tracking Num</th>
+        <th>Cost</th>
+        <th>Cost Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in data.results">
+        <td><a ng-href="detail{{x.uri}}">{{ x.imageCalc }}</a></td>
+        <td><a ng-href="source?id={{x.source}}">{{ x.source }}</a></td>
+        <td><a ng-href="asset?source={{x.source}}&id={{x.sourceTrackingNumber}}">{{ x.sourceTrackingNumber }}</a></td>
+        <td>${{ x.cost | number:2 }}</td>
+        <td><a ng-href="detail{{uri}}?costType={{x.costType}}">{{ x.costType }}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
