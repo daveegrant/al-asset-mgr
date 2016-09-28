@@ -71,9 +71,9 @@ function ext:post(
       let $_ := map:put($el, "imageCalc", $element/source/element/Image_Name_calc_long/data())
       let $_ := map:put($el, "source", $element/source/element/Source/data())
       let $_ := map:put($el, "sourceTrackingNumber", $element/source/element/Source_Tracking_Number/data())
-      let $_ := map:put($el, "invoiceDate", $element/source/element/Invoice_Date/data())
+      let $_ := map:put($el, "invoiceDate", $element/invoiceDate/data())
       let $_ := map:put($el, "invoiceNumber", $element/source/element/Invoice_Number/data())
-      let $_ := map:put($el, "processedDate", $element/source/element/Invoice_Processed_Date/data())
+      let $_ := map:put($el, "processedDate", $element/invoiceProcessedDate/data())
       return json:array-push($elem-array, $el)
 
   let $book-codes :=

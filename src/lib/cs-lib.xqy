@@ -43,6 +43,11 @@ let $sheet := excel:get-sheet-by-name($sheetname)
 
 };
 
+declare function cs-lib:convert-date($date-numeric)
+{
+  xs:date('1899-12-30') + (xs:dayTimeDuration('P1D') * $date-numeric)
+};
+
 declare function cs-lib:process-excel-data(
   $uri-prefix as xs:string,
   $doc as binary(),
@@ -94,6 +99,24 @@ declare function cs-lib:process-excel-data(
         else
           "Unknown"
 
+    let $invoice-date :=
+      if ($is-product) then
+        ()
+      else
+        if ($row-xml/Invoice_Date/data()) then
+          cs-lib:convert-date($row-xml/Invoice_Date/data())
+        else
+          ()
+
+    let $invoice-proc-date :=
+      if ($is-product) then
+        ()
+      else
+        if ($row-xml/Invoice_Processed_Date/data()) then
+          cs-lib:convert-date($row-xml/Invoice_Processed_Date/data())
+        else
+          ()
+
     let $row-doc := element envelope {
       if ($book-code) then
         (:element commonBookCode { $book-code }:)
@@ -104,6 +127,14 @@ declare function cs-lib:process-excel-data(
         element costType { $elem-cost-type }
       else
         (),
+      if (empty($invoice-date)) then
+        ()
+      else
+        element invoiceDate { $invoice-date },
+      if (empty($invoice-proc-date)) then
+        ()
+      else
+        element invoiceProcessedDate { $invoice-proc-date },
       element source {
         if ($is-product) then
           element product { $row-xml/* }
