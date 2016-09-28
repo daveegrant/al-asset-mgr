@@ -504,6 +504,7 @@
       <role-name>${app-role}</role-name>
       <description>A role for users of the ${app-name} application</description>
       <role-names>
+        <role-name>rest-reader</role-name>
       </role-names>
       <permissions>
         <permission>
