@@ -23,4 +23,4 @@ NODE_ENV=build
 #ML_HOST=localhost
 
 # MarkLogic port to which node server should proxy
-ML_PORT=9083
+ML_PORT=9084
