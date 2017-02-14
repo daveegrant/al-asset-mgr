@@ -275,7 +275,8 @@ gulp.task('build-specs', ['templatecache'], function() {
  * optimize before handling image or fonts
  * @param  {Function} done - callback when complete
  */
-gulp.task('build', ['optimize', 'images', 'fonts', 'statics', 'tinymce'], function(done) {
+// gulp.task('build', ['optimize', 'images', 'fonts', 'statics', 'tinymce'], function(done) {
+gulp.task('build', ['optimize'], function(done) {
   log('Building everything');
 
   var msg = {
@@ -294,6 +295,7 @@ gulp.task('build', ['optimize', 'images', 'fonts', 'statics', 'tinymce'], functi
  * @return {Stream}
  */
 gulp.task('optimize', ['inject', 'test'], function() {
+// gulp.task('optimize', ['inject'], function() {
   log('Optimizing the js, css, and html');
 
   // Filters are named for the gulp-useref path
